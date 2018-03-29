@@ -15,16 +15,16 @@ pub fn get_app_dir(t: AppDataType) -> Result<PathBuf, AppDirsError> {
         match t {
             UserConfig => {
                 path.push(".config");
-            },
+            }
             UserCache => {
                 path.push(".cache");
-            },
+            }
             UserData => {
                 path.push(".share");
-            },
+            }
             SharedConfig => {
                 path.push("etc");
-            },
+            }
             SharedData => {
                 path.push("share");
             }

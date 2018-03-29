@@ -3,17 +3,17 @@ use std::fs;
 use std::path::PathBuf;
 use utils;
 
-#[cfg(target_os="macos")]
+#[cfg(target_os = "macos")]
 mod platform {
     mod macos;
     pub use self::macos::*;
 }
-#[cfg(target_os="redox")]
+#[cfg(target_os = "redox")]
 mod platform {
     mod redox;
     pub use self::redox::*;
 }
-#[cfg(all(unix, not(target_os="macos")))]
+#[cfg(all(unix, not(target_os = "macos")))]
 mod platform {
     mod unix;
     pub use self::unix::*;
@@ -23,7 +23,7 @@ mod platform {
     mod windows;
     pub use self::windows::*;
 }
-#[cfg(not(any(windows, unix, target_os="macos", target_os="redox")))]
+#[cfg(not(any(windows, unix, target_os = "macos", target_os = "redox")))]
 mod platform {
     mod unknown;
     pub use self::unknown::*;
