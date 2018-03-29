@@ -8,6 +8,11 @@ mod platform {
     mod macos;
     pub use self::macos::*;
 }
+#[cfg(target_os="redox")]
+mod platform {
+    mod redox;
+    pub use self::redox::*;
+}
 #[cfg(all(unix, not(target_os="macos")))]
 mod platform {
     mod unix;
@@ -18,7 +23,7 @@ mod platform {
     mod windows;
     pub use self::windows::*;
 }
-#[cfg(not(any(windows, unix, target_os="macos",)))]
+#[cfg(not(any(windows, unix, target_os="macos", target_os="redox")))]
 mod platform {
     mod unknown;
     pub use self::unknown::*;
