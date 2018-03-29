@@ -98,8 +98,7 @@ impl std::error::Error for AppDirsError {
         use AppDirsError::*;
         match *self {
             Io(ref e) => Some(e),
-            NotSupported => None,
-            InvalidAppInfo => None,
+            NotSupported | InvalidAppInfo => None,
         }
     }
 }
